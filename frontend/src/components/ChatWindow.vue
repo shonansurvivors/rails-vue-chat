@@ -22,6 +22,7 @@
 import axios from "axios";
 
 export default {
+  emits: ['connectCable'],
   props: ['messages'],
   data () {
     return {
@@ -41,6 +42,7 @@ export default {
         if (!res) {
           new Error('いいねできませんでした')
         }
+        this.$emit('connectCable')
       } catch (error) {
         console.log(error)
       }
